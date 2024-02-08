@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+<constant name = "struts.devMode" value = "false" />
+<package extends="json-default" namespace="/" name="employee">
+
+
+
+
+<action name="getemployee" method="getemployee" class="com.ankur.action.EmployeeAction">
+  <result name="success" type="json">
+    <param name="root">employee</param>
+</result>
+<result name="error" type="json">
+    <param name="employee">null</param>
+</result>
+</action>
+
+
+<action name="addemployees"
+			class="com.ankur.action.EmployeeAction"
+			method="addemployees">
+			<interceptor-ref name="json">
+				<param name="enableSMD"></param>
+			</interceptor-ref>
+
+			<result name="INSERTED_ORDER_DETAILS_DATA" type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+
+			<result name="ERROR_IN_INSERTING_ORDER_DETAILS_DATA"
+				type="json">Order Details Insertion Error</result>
+
+
+</action>
+
+
+
+
+<action name="deleteEmployee"
+			class="com.ankur.action.EmployeeAction"
+			method="deleteEmployee">
+			<interceptor-ref name="json">
+				<param name="enableSMD"></param>
+			</interceptor-ref>
+
+			<result name="Deleted_ORDER_DETAILS_DATA" type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+
+			<result name="ERROR_IN_Delete_ORDER_DETAILS_DATA"
+				type="json">Deleted Error</result>
+
+
+</action>
+
+
+<action name="UpdateEmployee"
+			class="com.ankur.action.EmployeeAction"
+			method="UpdateEmployee">
+			
+			<interceptor-ref name="json">
+				<param name="enableSMD"></param>
+			</interceptor-ref>
+
+			<result name="Update_DETAILS_DATA" type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+
+			<result name="ERROR_IN__Update_DATA"
+				type="json">Deleted Error</result>
+
+</action>
+
+
+
+
+
+<action name="noEmployee" method="noEmployee" class="com.ankur.action.EmployeeAction">
+<interceptor-ref name="json">
+				<param name="enableSMD"></param>
+			</interceptor-ref>
+			
+			
+  
+			<result name="success" type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+
+			<result name="error"
+				type="json">Deleted Error</result>
+</action>
+
+
+
+
+
+
+<action name="getBankName" method="getBankName" class="com.ankur.action.BankNameAction">
+
+  <result name="success" type="json">
+    <param name="root">banknames</param>
+</result>
+<result name="error" type="json">
+    <param name="employee">null</param>
+</result>
+</action>
+
+
+
+
+<action name="addBankName"
+			class="com.ankur.action.BankNameAction"
+			method="addBankName">
+			<interceptor-ref name="json">
+				<param name="enableSMD"></param>
+			</interceptor-ref>
+
+			<result name="INSERTED__DETAILS_DATA" type="json">
+				<param name="excludeNullProperties">true</param>
+			</result>
+
+			<result name="ERROR_IN_INSERTING_DETAILS_DATA"
+				type="json"> Insertion Error</result>
+
+
+</action>
+
+
+
+
+
+
+</package>
+</struts>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
+
+<!-- bean definitions here -->
+<bean class="com.ankur.daoImpl.EmployeeDAOIMPL" id="employeeDaoImpl"> </bean>
+<bean class="com.ankur.managerImpl.EmployeemanagerImpl" id="employeeManagerImpl">
+<property ref="employeeDaoImpl" name="employeeDao"/>
+</bean>
+
+
+<bean class=" com.ankur.daoImpl.BankDAOImpl" id="bankDAOImpl"> </bean>
+<bean class="com.ankur.managerImpl.BankManagerImpl" id="bankManagerImpl">
+<property ref="bankDAOImpl" name="bankDao"/>
+</bean>
+
+</beans>
